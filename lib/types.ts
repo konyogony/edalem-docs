@@ -4,6 +4,8 @@ export type params = Promise<{
     slug?: string[];
 }>;
 
+export type separatorType = 'chevron' | 'double-chevron' | 'slash' | 'horizontal-line' | 'dot' | 'triangle';
+
 export type preProps = React.HTMLAttributes<HTMLPreElement> & {
     lineNumbers?: boolean;
     noTopBar?: boolean;
@@ -67,6 +69,8 @@ export interface DoxiumConfig {
         showAppNameInTitle: boolean;
         separate: boolean;
         scollHeightBreakpoint: number;
+        showEditInGithub: boolean;
+        breadcrumbSeparator: separatorType;
         extensions: (LanguageInput | SpecialLanguage | StringLiteralUnion<BundledLanguage, string>)[];
         navbarImage?: {
             large?: {

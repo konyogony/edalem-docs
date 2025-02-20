@@ -1,6 +1,6 @@
 Not perfect and a little broken.
 
-To edit current alpha version of `Edalem Docs` using [`@doxium/cli v0.0.5`](https://www.npmjs.com/package/@doxium/cli) **localy**:
+To edit current alpha version of `Edalem Docs` using [`@doxium/cli v0.0.6`](https://www.npmjs.com/package/@doxium/cli) **localy**:
 
 1. Clone the repository
 2. Install [bun](https://bun.sh/)

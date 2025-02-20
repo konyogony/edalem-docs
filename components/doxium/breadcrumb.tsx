@@ -1,9 +1,40 @@
 // This is from shadcn/ui
 
 import { Slot } from '@radix-ui/react-slot';
-import { RxChevronRight, RxDotsHorizontal } from 'icons/rx';
+import config from 'config';
+import {
+    RxChevronRight,
+    RxDividerVertical,
+    RxDotFilled,
+    RxDotsHorizontal,
+    RxDoubleArrowRight,
+    RxSlash,
+    RxTriangleRight,
+} from 'icons/rx';
+import { separatorType } from 'lib/types';
 import { cn } from 'lib/utils';
 import * as React from 'react';
+
+const configSeparator = config.misc.breadcrumbSeparator;
+
+const separatorIcon = (type: separatorType) => {
+    switch (type) {
+        case 'chevron':
+            return <RxChevronRight />;
+        case 'double-chevron':
+            return <RxDoubleArrowRight />;
+        case 'slash':
+            return <RxSlash />;
+        case 'triangle':
+            return <RxTriangleRight />;
+        case 'horizontal-line':
+            return <RxDividerVertical />;
+        case 'dot':
+            return <RxDotFilled />;
+        default:
+            return <RxChevronRight />;
+    }
+};
 
 const Breadcrumb = React.forwardRef<
     HTMLElement,
@@ -68,7 +99,7 @@ BreadcrumbPage.displayName = 'BreadcrumbPage';
 
 const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentProps<'li'>) => (
     <li role='presentation' aria-hidden='true' className={cn('[&>svg]:h-3.5 [&>svg]:w-3.5', className)} {...props}>
-        {children ?? <RxChevronRight />}
+        {children ?? separatorIcon(configSeparator)}
     </li>
 );
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';

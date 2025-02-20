@@ -31,6 +31,8 @@ export default {
         appName: 'Edalem',
         showAppNameInTitle: true,
         scollHeightBreakpoint: 300,
+        breadcrumbSeparator: 'slash',
+        showEditInGithub: false,
         extensions: ['ts', 'tsx', 'jsx', 'rs', 'html', 'txt', 'mdx', 'bash', 'sh', 'js', 'css', 'json'], // Just default values
         navbarImage: {
             large: {
@@ -44,7 +46,7 @@ export default {
         },
     },
     authors: {
-        rasputinpavel: 'https://github.com/rasputinpavel',
+        // rasputinpavel: 'https://github.com/rasputinpavel',
         // konyogony: 'https://github.com/konyogony',
     },
-} as DoxiumConfig;
+} as DoxiumConfig satisfies DoxiumConfig;

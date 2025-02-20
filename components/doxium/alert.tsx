@@ -13,7 +13,7 @@ import { cn } from 'lib/utils';
 export interface AlertProps {
     type?: 'bookmark' | 'warning' | 'error' | 'success' | 'info' | 'star' | 'accent' | 'base';
     link?: string;
-    description?: string;
+    title?: string;
 }
 
 // TODO: Adjust contrast between some of the colors
@@ -40,31 +40,31 @@ const getAlertColor = (type: AlertProps['type']) => {
     }
 };
 
-// TODO: Icons size change depending on screen size
+// TODO: When returning, maybe return only the icon and append the size + classname later?
 const getAlertIcon = (type: AlertProps['type']) => {
     switch (type) {
         case 'bookmark':
-            return <FiBookmark size={20} />;
+            return <FiBookmark size={20} className='shrink-0' />;
         case 'warning':
-            return <FiAlertTriangle size={20} />;
+            return <FiAlertTriangle size={20} className='shrink-0' />;
         case 'error':
-            return <FiAlertCircle size={20} />;
+            return <FiAlertCircle size={20} className='shrink-0' />;
         case 'success':
-            return <FiCheck size={20} />;
+            return <FiCheck size={20} className='shrink-0' />;
         case 'info':
-            return <FiInfo size={20} />;
+            return <FiInfo size={20} className='shrink-0' />;
         case 'accent':
-            return <FiMessageCircle size={20} />;
+            return <FiMessageCircle size={20} className='shrink-0' />;
         case 'base':
-            return <FiInfo size={20} />;
+            return <FiInfo size={20} className='shrink-0' />;
         case 'star':
-            return <FiStar size={20} />;
+            return <FiStar size={20} className='shrink-0' />;
         default:
-            return <FiSquare size={20} />;
+            return <FiSquare size={20} className='shrink-0' />;
     }
 };
 
-const Alert = ({ type = 'accent', children, link, description }: React.PropsWithChildren<AlertProps>) => {
+const Alert = ({ type = 'accent', children, link, title }: React.PropsWithChildren<AlertProps>) => {
     return link ? (
         <a
             className={cn(
@@ -77,8 +77,8 @@ const Alert = ({ type = 'accent', children, link, description }: React.PropsWith
         >
             {getAlertIcon(type)}
             <div className='flex flex-col'>
-                <span className={cn('ml-2', description && 'text-base font-bold')}>{children}</span>
-                {description && <span className='ml-2 text-sm font-normal'>{description}</span>}
+                <span className={cn('ml-2', title && 'text-base font-bold')}>{title}</span>
+                {title && <span className='ml-2 text-sm font-normal'>{children}</span>}
             </div>
         </a>
     ) : (
@@ -90,8 +90,8 @@ const Alert = ({ type = 'accent', children, link, description }: React.PropsWith
         >
             {getAlertIcon(type)}
             <div className='flex flex-col'>
-                <span className={cn('ml-2', description && 'text-base font-bold')}>{children}</span>
-                {description && <span className='ml-2 text-sm font-normal'>{description}</span>}
+                <span className={cn('ml-2', title && 'text-base font-bold')}>{title}</span>
+                {title && <span className='ml-2 text-sm font-normal'>{children}</span>}
             </div>
         </span>
     );
