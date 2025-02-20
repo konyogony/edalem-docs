@@ -3,7 +3,6 @@ import { cn } from 'lib/utils';
 
 export interface CardProps {
     title: string;
-    description?: string;
     href?: string;
     newTab?: boolean;
     full?: boolean;
@@ -11,14 +10,7 @@ export interface CardProps {
 
 // TODO: Please rework EVERYTHING here to actually be useful and look good.
 
-const Card = ({
-    title,
-    href,
-    children,
-    description,
-    full = false,
-    newTab = false,
-}: React.PropsWithChildren<CardProps>) => {
+const Card = ({ title, href, children, full = false, newTab = false }: React.PropsWithChildren<CardProps>) => {
     return href ? (
         <a
             href={href}
@@ -32,7 +24,6 @@ const Card = ({
             <span className='text-xl font-semibold text-base-950 underline transition-all duration-150 group-hover:text-accent-600 dark:text-base-100'>
                 {title}
             </span>
-            {description && <span className='text-base-900 dark:text-base-100'>{description}</span>}
             <div>{children}</div>
             <FiArrowUpRight
                 size={18}
@@ -49,7 +40,6 @@ const Card = ({
             <span className='text-xl font-semibold text-base-900 transition-all duration-150 dark:text-base-100'>
                 {title}
             </span>
-            {description && <span className='text-base-900 dark:text-base-100'>{description}</span>}
             <div>{children}</div>
         </div>
     );

@@ -138,10 +138,7 @@ const SelectIcon = ({ type, extension, size }: SelectIconProps) => {
 };
 
 interface FiletreeProps {
-    children:
-        | ReactElement<typeof Folder>
-        | ReactElement<typeof File>
-        | Array<ReactElement<typeof Folder> | ReactElement<typeof File>>;
+    children: FolderChildren;
 }
 
 export const Filetree = ({ children }: FiletreeProps): ReactElement => {

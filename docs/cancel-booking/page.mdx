@@ -1,0 +1,102 @@
+---
+title: Cancel booking for Agent
+description: How to cancel booking on Agent's side
+sort: 5
+---
+
+# Cancel booking for Agent
+
+<Alert type="warning" description="Cancellation rules are defined by Supplier and could be different from tour to tour. As an Agent you need to have full information about cancellation policy for every Tour/Excursion">
+Important!
+</Alert>
+
+
+As an **example** we'll take a Tour with cancellation policy below: 
+- Agent is allowed to cancel the booking day before the Tour date before 18:00 local time with no cancellation fee from the Supplier side
+- Agent will pay 100% cancellation fee if they want to cancel the booking after 18:00 day before the tour date.
+
+Let's say —  today is 31.12.2024.
+
+Below you can see how system will work with both cases.
+
+# Case 1
+First, let's cancel reservation made for 04.01.2025 (more than 1 day in advance)
+
+<Timeline>
+## Find tour date
+Click to the Calendar tab and find the tour date - 04.01.2025
+![Find tour](/cancel-booking/findTour.png)
+
+## Click on the date
+See the list of Tour sold for this particular date and choose the Tour you want to Cancel. For this date we have only one Tour sold. Click on SOLD button to see the list of reservations.
+![Click date](/cancel-booking/clickDate.png)
+
+## Action column 
+We have one booking with 3 tourists. Let's scroll to the right to see Action column
+![Action column](/cancel-booking/actionColumn.png)
+
+## Click on 3 dots
+Find Action column and click on the *3 dots* icon to see available options. 
+![3 dots](/cancel-booking/3dots.png)
+
+In our case you see Edit and Cancel buttons. 
+{/* // TODO: Change the desc and title */}
+<Alert type="warning" description=" If you choose Cancel — reservation will be marked as cancelled (no show) for all tourists within this booking. If you want to cancel the reservation Partially (for example only 1 out of 3 tourists want to cancel) you should choose Edit action (see how to Edit the reservation)">
+Important!
+</Alert>
+
+## Choose Cancel
+Let's choose the Cancel option to cancel the whole reservation. The system will show a warning message that you're going to cancel the whole reservation and it will be marked as a no-show for all the tourists. Click **Yes, cancel** it to complete the cancellation process.
+![Choose cancel](/cancel-booking/chooseCancel.png)
+
+## Confirmation
+You'll get confirmation of cancellation. No fee for the cancellation was applied.
+![success](/cancel-booking/success.png)
+
+</Timeline>
+
+# Case 2
+Now, let's try to cancel the reservation made for the tour starting today - 31.12.2024
+
+<Timeline>
+## Find the tour date
+Let's choose Calendar tab and find 31.12.2024 (today) to see all registrations
+![Tour date](/cancel-booking/tourDate.png)
+
+## Check the list
+Click to see all Tours sold. In our case we have two Tours sold with 5 tourists in one, and 4 in second. Let's say we want to cancel reservation for the 2nd Tour. Click on SOLD button to see details of the reservation.
+![Check list](/cancel-booking/checkList.png)
+
+## Details of booking
+We see now details of our booking. To Cancel it, scroll to the right and find Action column.
+![Details Booking](/cancel-booking/detailsBooking.png)
+
+## Click on the 3 dots
+Click on the *3 dots* icon to see the list of available options
+![3 dots](/cancel-booking/3dots2.png)
+
+## Click cancel
+Choose the Cancel option, the system will show you a warning about Cancellation fee from the Supplier for late cancellation. In this case the Agent agrees to pay 100% of the Tour cost. This sum will be included into the next invoice from the Supplier.
+![Click cancel](/cancel-booking/clickCancel.png)
+
+## Cancellation proccess
+Agents can choose - to cancel the whole reservation or to cancel it partially. Agents can specify the number of tourist for cancellation in the fields provided on this screen. Cancellation fee will be calculated accordingly. Let's cancel 1 adult to see how it works.
+
+After cancelling 1 adult we still have 2 adults and 1 child in our reservation. 
+![Cancellation](/cancel-booking/cancellation.png)
+
+## Cancel the whole reservation 
+Let's cancel all the tourists from this reservation. Find Action button and click Cancel
+You'll see same system warning that there's a cancellation fee for this reservation. 
+Put 2 adults and 1 child in the fields below and click Cancellation. 
+![succes](/cancel-booking/success2.png)
+
+You'll see the confirmation that your order was cancelled successfully.
+</Timeline>
+
+
+# Video Guide
+
+If you prefer video guides, here is a short video on how to cancel the booking on the Edalem platform.
+
+<Video src='/cancel-booking/cancel.mp4' controls={true} type="mp4" title="Video guide on how to cancel the booking on the Edalem platform." />

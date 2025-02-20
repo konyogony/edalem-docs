@@ -9,17 +9,24 @@ sort: 2
 After successful verification of the Agent's account you need to add your first Supplier to have access to travel products *(tours)* of this Supplier.
 If an Agent doesn't add Supplier to the Agent's account on Edalem, the system can't show any tours to make reservations. 
 
-![Add Supplier](/supplier1.png)
+![Add Supplier](/add-supplier/supplier1.png)
 
 ## Getting credentials
 
 Before adding the Supplier please contact Supplier's team to get your credentials. You need to get **Supplier ID** (Identificator), **Agent Login** and **Agent Password**.
 
-![Supplier credentials](/credentials1.png)
+<ColumnGroup>
+    <ColumnItem>
+        ![Supplier credentials](/add-supplier/credentials1.png)
+    </ColumnItem>
 
-<Alerts type="error">
-Don't use this data, it's for demonstration use only! 
-</Alerts>
+    <ColumnItem>
+        {/* // TODO: Change the desc and title */}
+        <Alert type="error" description="Don't use this data, it's for demonstration use only!">
+            Important Notice:        
+        </Alert>
+    </ColumnItem>
+</ColumnGroup>
 
 If you don't have any information from the Supplier side, you can contact the Edalem team via email `info@edalem.io` and we'll assist you to get necessary information.
 
@@ -29,9 +36,42 @@ After getting Agent's credentials follow steps below:
 
 ## Open Supplier's page
 Choose Suppliers tab on the left sidebar, as shown in the screenshot
-![Suppliers tab](/suppliers2.png)
+![Suppliers tab](/add-supplier/suppliers2.png)
 
 ## Fill in the form
 Fill the form with the information that you got from the Supplier
-![Fill in fields](/form.png)
+![Fill in fields](/add-supplier/form.png)
+
+## Click Create
+Click Create and get confirmation of adding Supplier's tours to your Agent's account
+![Create](/add-supplier/create.png)
+
+## Check Tours availability
+To check Tours availability go to Calendar tab and click on Add Booking
+![Check Tours](/add-supplier/checkTours.png)
+
+## Congratulations!
+Congratulation! Tours from your first Supplier are now available for your reservations.
+![Open tours](/add-supplier/openTours.png)
+
 </Timeline>
+
+# Video Guide
+
+If you prefer video guides, here is a short video on how to add your first Supplier to Agent's account on Edalem platform
+
+<Video src='/add-supplier/addingSupplierVideo.mp4' controls width="100%" type="mp4" title="Video guide on how to register a new Agent's account on Edalem platform " />
+
+## Next steps
+
+Explore more guides on how to use Edalem platform
+
+<CardGroup cols={2}>
+<Card full={true} title="Adding more suppliers" href="/more-suppliers">
+Learn how to add more suppliers to your Agent's account on Edalem platform in the next guide
+</Card>
+
+<Card full={true} title="Making your first booking" href="/making-booking">
+Learn how to make your first booking on Edalem platform in the next guide
+</Card>
+</CardGroup>

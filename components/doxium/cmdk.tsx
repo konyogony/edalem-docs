@@ -1,12 +1,12 @@
 'use client';
 
 import { DialogDescription, DialogTitle, type DialogProps } from '@radix-ui/react-dialog';
+import { Button } from 'doxium/button';
+import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from 'doxium/command';
 import { RxFile, RxMagnifyingGlass } from 'icons/rx';
 import { TreeNode } from 'lib/types';
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { Button } from 'ui/button';
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from 'ui/command';
 
 interface CmdkProps extends DialogProps {
     tree: TreeNode[];
@@ -62,7 +62,7 @@ const Cmdk = ({ tree, ...props }: CmdkProps) => {
                 onClick={() => setOpen(true)}
                 {...props}
                 aria-label='Search documentation'
-                className='group ml-auto cursor-pointer flex-row items-center overflow-clip rounded-md border border-white/5 bg-base-900/50 px-2 py-1 text-sm font-normal text-base-800 backdrop-blur-md transition-all duration-300 hover:bg-base-700/60 hover:text-base-900 dark:text-base-400 dark:hover:bg-base-800/60 dark:hover:text-base-200 lg:hidden xl:w-fit xl:gap-10'
+                className='group ml-auto cursor-pointer flex-row items-center overflow-clip rounded-md border border-white/5 bg-base-300/50 px-2 py-1 text-sm font-normal text-base-800 backdrop-blur-md transition-all duration-300 hover:bg-base-400/60 hover:text-base-900 dark:bg-base-900/50 dark:text-base-400 dark:hover:bg-base-800/60 dark:hover:text-base-200 lg:hidden xl:w-fit xl:gap-10'
             >
                 <RxMagnifyingGlass />
             </Button>

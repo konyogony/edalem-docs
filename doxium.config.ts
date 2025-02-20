@@ -18,7 +18,7 @@ export default {
     navLinks: {
         Home: '/',
         Edalem: 'https://edalem.net',
-    }, // { 'name': 'link', 'name2': 'link2' }
+    },
     socials: {
         githubRepo: 'https://github.com/konyogony/edalem-docs',
         twitter: '',
@@ -32,8 +32,19 @@ export default {
         showAppNameInTitle: true,
         scollHeightBreakpoint: 300,
         extensions: ['ts', 'tsx', 'jsx', 'rs', 'html', 'txt', 'mdx', 'bash', 'sh', 'js', 'css', 'json'], // Just default values
+        navbarImage: {
+            large: {
+                dark: '/navbarImage.png',
+                light: '/navbarImage.png',
+            },
+            small: {
+                dark: '/favicon.svg',
+                light: '/favicon.svg',
+            },
+        },
     },
     authors: {
         rasputinpavel: 'https://github.com/rasputinpavel',
-    }, // { name: 'link?', name2: 'link2?' }
+        // konyogony: 'https://github.com/konyogony',
+    },
 } as DoxiumConfig;

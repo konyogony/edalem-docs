@@ -16,7 +16,10 @@ const TOC = ({ headings }: { headings: Heading[] }) => {
                     }
                 });
             },
-            { rootMargin: '0px 0px -10% 0px', threshold: [0.1, 0.5, 1.0] },
+            {
+                rootMargin: '-10% 0px -80% 0px',
+                threshold: 0,
+            },
         );
 
         headings.forEach((heading) => {

@@ -1,9 +1,5 @@
 'use client';
 
-import LogoBigDark from '@/public/Doxium-slim-dark.svg';
-import LogoBigLight from '@/public/Doxium-slim-light.svg';
-import LogoSmallDark from '@/public/DX-slim-dark.svg';
-import LogoSmallLight from '@/public/DX-slim-light.svg';
 import config from 'config';
 import Cmdk from 'doxium/cmdk';
 import { DocLink, Filetree } from 'doxium/filetree-navigation';
@@ -21,7 +17,7 @@ const socials = config.socials;
 const rootTitle = config.rootTitle;
 const configNavLinks = config.navLinks;
 const colorScheme = config.style.colorScheme;
-
+const navbarImage = config.misc.navbarImage;
 interface NavbarProps {
     tree: TreeNode[];
 }
@@ -93,32 +89,83 @@ const Navbar = ({ tree }: NavbarProps) => {
         setOpened(false);
     }, [pathname]);
 
+    // Actually awfull
+    const NavbarImage = useMemo(
+        () =>
+            navbarImage && (
+                <Link
+                    href='/'
+                    className='text-xs font-bold text-base-900 hover:text-base-950 dark:text-base-100 dark:hover:text-base-50'
+                >
+                    {navbarImage.large && navbarImage.large.dark && navbarImage.large.light && (
+                        <Image
+                            src={colorScheme === 'dark' ? navbarImage.large.dark : navbarImage.large.light}
+                            alt='Logo Big Variable'
+                            width={100}
+                            height={40}
+                            className='hidden md:flex'
+                        />
+                    )}
+                    {navbarImage.large && !navbarImage.large.dark && navbarImage.large.light && (
+                        <Image
+                            src={navbarImage.large.light}
+                            alt='Logo Big Light'
+                            width={100}
+                            height={40}
+                            className='hidden md:flex'
+                        />
+                    )}
+                    {navbarImage.large && navbarImage.large.dark && !navbarImage.large.light && (
+                        <Image
+                            src={navbarImage.large.dark}
+                            alt='Logo Big Dark'
+                            width={100}
+                            height={40}
+                            className='hidden md:flex'
+                        />
+                    )}
+                    {navbarImage.small && navbarImage.small.dark && navbarImage.small.light && (
+                        <Image
+                            src={colorScheme === 'dark' ? navbarImage.small.dark : navbarImage.small.light}
+                            alt='Logo Small Variable'
+                            width={40}
+                            height={40}
+                            className='flex md:hidden'
+                        />
+                    )}
+                    {navbarImage.small && !navbarImage.small.dark && navbarImage.small.light && (
+                        <Image
+                            src={navbarImage.small.light}
+                            alt='Logo Small Light'
+                            width={40}
+                            height={40}
+                            className='flex md:hidden'
+                        />
+                    )}
+                    {navbarImage.small && navbarImage.small.dark && !navbarImage.small.light && (
+                        <Image
+                            src={navbarImage.small.dark}
+                            alt='Logo Small dark'
+                            width={40}
+                            height={40}
+                            className='flex md:hidden'
+                        />
+                    )}
+                </Link>
+            ),
+        [],
+    );
+
     return (
         <>
             <div className='fixed inset-0 z-50 flex h-fit w-full flex-col'>
                 <nav className='flex h-fit w-full flex-row items-center gap-8 border-black/5 bg-base-100/50 px-[10vw] py-4 text-sm font-normal text-base-950 backdrop-blur-xl transition-all duration-300 dark:border-white/10 dark:bg-base-950/50 dark:text-base-300 lg:border-b lg:px-[20vw]'>
-                    <Link
-                        href='/'
-                        className='text-xl font-bold text-base-900 hover:text-base-950 dark:text-base-100 dark:hover:text-base-50'
-                    >
-                        <Image
-                            src={colorScheme === 'dark' ? LogoBigDark : LogoBigLight}
-                            alt='Doxium Logo Slim Big'
-                            width={100}
-                            className='hidden md:flex'
-                        />
-                        <Image
-                            src={colorScheme === 'dark' ? LogoSmallDark : LogoSmallLight}
-                            alt='Doxium Logo Slim Small'
-                            width={40}
-                            className='flex md:hidden'
-                        />
-                    </Link>
+                    {NavbarImage}
                     {navLinks}
                     {CMDKElement}
                     <div className='-ml-4 hidden flex-row items-center gap-2 lg:flex'>{socialLinks}</div>
                 </nav>
-                <div className='z-50 flex w-full flex-col border-y border-black/10 bg-base-400/50 px-[10vw] py-2.5 backdrop-blur-xl dark:border-white/10 dark:bg-base-950/50 lg:hidden'>
+                <div className='z-50 flex w-full flex-col border-y border-black/10 bg-base-200/50 px-[10vw] py-2.5 backdrop-blur-xl dark:border-white/10 dark:bg-base-950/50 lg:hidden'>
                     {menuButton}
                     <div className={cn('w-1/2 flex-col pb-2', opened ? 'flex' : 'hidden')}>
                         <DocLink name={rootTitle} />
@@ -128,7 +175,7 @@ const Navbar = ({ tree }: NavbarProps) => {
             </div>
             <button
                 className={cn(
-                    'fixed inset-0 z-40 h-screen w-screen bg-base-600/30 transition-all duration-300 dark:bg-base-950/50',
+                    'fixed inset-0 z-40 h-screen w-screen bg-base-950/50 transition-all duration-300',
                     opened ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
                 )}
                 aria-label='Close menu'
