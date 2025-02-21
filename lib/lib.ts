@@ -7,7 +7,6 @@ import { BundledLanguage, BundledTheme, createHighlighter, HighlighterGeneric } 
 
 const MDX_DIR = path.join(process.cwd(), 'docs');
 const extensions = config.misc.extensions;
-
 export const cleanHeadingId = (id: string): string => {
     return id
         .toLowerCase()
@@ -36,15 +35,16 @@ export const isLightColor = (color: string) => {
 };
 
 export const getMdxData = async (slug: string) => {
-    const filePath = path.join(MDX_DIR, `${slug}/page.mdx`);
+    const filePath = path.join(MDX_DIR, slug, 'page.mdx');
     try {
         const fileContent = await fs.readFile(filePath, 'utf-8');
         const { data: frontmatter, content } = matter(fileContent);
-        // Really bad not going to lie, wanted to compile and extract headings, but ran into some issues.
-        const contentWithoutCodeBlocks = content.replace(/```[\s\S]*?```/g, '');
+
+        // Remove code blocks and trim whitespace
+        const contentWithoutCodeBlocks = content.replace(/```[\s\S]*?```/g, '').trim();
 
         const headings: Heading[] = [];
-        const lines = contentWithoutCodeBlocks.split('\n');
+        const lines = contentWithoutCodeBlocks.split(/\r?\n/);
 
         for (const line of lines) {
             const headingMatch = line.match(/^(#{1,3})\s+(.+)$/);
@@ -73,7 +73,7 @@ export const getAllMdxSlugs = async (dir: string = MDX_DIR): Promise<string[]> =
                 const mdxFilePath = path.join(fullPath, 'page.mdx');
                 try {
                     await fs.readFile(mdxFilePath, 'utf-8');
-                    slugs.push(fullPath.replace(`${MDX_DIR}/`, ''));
+                    slugs.push(fullPath.replace(MDX_DIR + path.sep, ''));
                 } catch {
                     const subDirSlugs = await getAllMdxSlugs(fullPath);
                     slugs = slugs.concat(subDirSlugs);
@@ -99,7 +99,7 @@ export const getAllMdxFiles = async (dir: string = MDX_DIR): Promise<DoxiumFile[
                     const { data: frontmatter } = matter(fileContent);
                     files.push({
                         title: frontmatter.title,
-                        slug: fullPath.replace(`${MDX_DIR}/`, ''),
+                        slug: fullPath.replace(MDX_DIR + path.sep, ''),
                         sort: frontmatter.sort,
                         groupTitle: frontmatter.groupTitle,
                         groupSort: frontmatter.groupSort,

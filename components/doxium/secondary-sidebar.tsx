@@ -4,12 +4,14 @@ import ScrollBackButton from 'doxium/scroll-back-button';
 import TOC from 'doxium/toc';
 import { FiArrowUpRight } from 'icons/fi';
 import { Heading } from 'lib/types';
+import { cn } from 'lib/utils';
 
 interface SecondarySidebarProps {
     headings: Heading[] | null;
 }
 
 const sidebarLinks = config.sidebarLinks;
+const linkUnderline = config.misc.linkUnderline;
 
 const SecondarySidebar = ({ headings }: SecondarySidebarProps) => {
     return (
@@ -26,7 +28,10 @@ const SecondarySidebar = ({ headings }: SecondarySidebarProps) => {
                             href={Object.values(sidebarLinks)[i]}
                             rel='noopener noreferrer'
                             target='_blank'
-                            className='flex flex-row items-center gap-1 text-sm text-base-500 transition-all duration-300 hover:underline'
+                            className={cn(
+                                'flex flex-row items-center gap-1 text-sm text-base-500 transition-all duration-300',
+                                linkUnderline ? 'hover:underline' : 'hover:text-base-900 dark:hover:text-base-50',
+                            )}
                         >
                             {v} <FiArrowUpRight />
                         </a>

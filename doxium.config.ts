@@ -24,7 +24,9 @@ export default {
         twitter: '',
         discord: '',
     },
-    sidebarLinks: {}, // { 'name': 'link', 'name2': 'link2' }
+    sidebarLinks: {
+        'Visit our website': 'https://edalem.net',
+    },
     misc: {
         toggleFolders: false, // Experimental feature
         separate: false,
@@ -33,7 +35,8 @@ export default {
         scollHeightBreakpoint: 300,
         breadcrumbSeparator: 'slash',
         showEditInGithub: false,
-        extensions: ['ts', 'tsx', 'jsx', 'rs', 'html', 'txt', 'mdx', 'bash', 'sh', 'js', 'css', 'json'], // Just default values
+        linkUnderline: true,
+        extensions: ['ts', 'tsx', 'jsx', 'rs', 'html', 'txt', 'mdx', 'bash', 'sh', 'js', 'css', 'json'],
         navbarImage: {
             large: {
                 dark: '/navbarImage.png',
