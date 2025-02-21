@@ -43,8 +43,8 @@ export default {
                 light: '/navbarImage.png',
             },
             small: {
-                dark: '/favicon.svg',
-                light: '/favicon.svg',
+                dark: '/favicon.ico',
+                light: '/favicon.ico',
             },
         },
     },

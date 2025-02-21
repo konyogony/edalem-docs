@@ -9,7 +9,9 @@ sort: 2
 After successful verification of the Agent's account you need to add your first Supplier to have access to travel products *(tours)* of this Supplier.
 If an Agent doesn't add Supplier to the Agent's account on Edalem, the system can't show any tours to make reservations. 
 
-![Add Supplier](/add-supplier/supplier1.png)
+{/* ![Add Supplier](/add-supplier/supplier1.png) */}
+
+<Image src="/add-supplier/supplier1.png" alt="Add Supplier" width={800} height={600} />
 
 ## Getting credentials
 
@@ -17,7 +19,8 @@ Before adding the Supplier please contact Supplier's team to get your credential
 
 <ColumnGroup>
     <ColumnItem>
-        ![Supplier credentials](/add-supplier/credentials1.png)
+        {/* ![Supplier credentials](/add-supplier/credentials1.png) */}
+        <Image src="/add-supplier/credentials1.png" alt="Supplier credentials" width={400} height={600} />
     </ColumnItem>
 
     <ColumnItem center={true}>
@@ -35,23 +38,29 @@ After getting Agent's credentials follow steps below:
 
 ## Open Supplier's page
 Choose Suppliers tab on the left sidebar, as shown in the screenshot
-![Suppliers tab](/add-supplier/suppliers2.png)
+{/* ![Suppliers tab](/add-supplier/suppliers2.png) */}
+<Image src="/add-supplier/suppliers2.png" alt="Suppliers tab" width={800} height={600} />
+
 
 ## Fill in the form
 Fill the form with the information that you got from the Supplier
-![Fill in fields](/add-supplier/form.png)
+{/* ![Fill in fields](/add-supplier/form.png) */}
+<Image src="/add-supplier/form.png" alt="Fill in fields" width={800} height={600} />
 
 ## Click Create
 Click Create and get confirmation of adding Supplier's tours to your Agent's account
-![Create](/add-supplier/create.png)
+{/* ![Create](/add-supplier/create.png) */}
+<Image src="/add-supplier/create.png" alt="Create" width={800} height={600} />
 
 ## Check Tours availability
 To check Tours availability go to Calendar tab and click on Add Booking
-![Check Tours](/add-supplier/checkTours.png)
+{/* ![Check Tours](/add-supplier/checkTours.png) */}
+<Image src="/add-supplier/checkTours.png" alt="Check Tours" width={800} height={600} />
 
 ## Congratulations!
 Congratulation! Tours from your first Supplier are now available for your reservations.
-![Open tours](/add-supplier/openTours.png)
+{/* ![Open tours](/add-supplier/openTours.png) */}
+<Image src="/add-supplier/openTours.png" alt="Open tours" width={800} height={600} />
 
 </Timeline>
 
@@ -74,3 +83,24 @@ Learn how to add more suppliers to your Agent's account on Edalem platform in th
 Learn how to make your first booking on Edalem platform in the next guide
 </CardItem>
 </CardGroup> */}
+
+```mermaid
+graph TD;
+subgraph AA [Consumers]
+A[Mobile app];
+B[Web app];
+C[Node.js client];
+end
+subgraph BB [Services]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;
+```
